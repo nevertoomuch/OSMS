@@ -44,8 +44,8 @@ def process_signal(fs, label):
     k = np.arange(N)
     freq = k * fs / N
     freq[freq > fs / 2] = freq[freq > fs / 2] - fs      
-    threshold = 0.1 * np.max(amp)
-    valid_pos_freqs = freq[(amp > threshold) & (freq >= 0)]
+    porog = 0.1 * np.max(amp)
+    valid_pos_freqs = freq[(amp > porog) & (freq >= 0)]
     if len(valid_pos_freqs) > 0:
         spectrum_width = valid_pos_freqs.max()
     else:
